@@ -11,6 +11,6 @@ import lombok.*;
 @ToString
 public class GetCommentsInput {
 
-    @NotBlank
+    @NotBlank(message = "roomId is mandatory") // otherwise it could come as null or empty
     private String roomId;
 }

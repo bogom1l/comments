@@ -1,5 +1,9 @@
 Todo:
 
-services
+all endpoints
+ * validation - @NotNull, @Min/Max, ... ---> @Valid
+ * @Operation, @ApiResponses
+ * GlobalExceptionHandler
+ * ObjectMapper
 
-
+ ?replacement of requestmapping
