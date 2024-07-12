@@ -2,10 +2,11 @@ package com.tinqinacademy.comments.rest.controllers;
 
 import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentInput;
 import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentOutput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.core.contracts.HotelService;
-import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class HotelController {
     }
 
     // TODO: Add Swagger's @Operation, @ApiResponses
-    @GetMapping("/{roomId}/comments")
+    @GetMapping("/{roomId}/comment")
     public ResponseEntity<?> getAllComments(@PathVariable @Valid String roomId) {
 
         GetCommentsInput input = GetCommentsInput.builder()
@@ -38,7 +39,7 @@ public class HotelController {
 
     @PostMapping("/{roomId}/comment")
     public ResponseEntity<?> createComment(@PathVariable @Valid String roomId,
-                                           @RequestBody @Valid CreateCommentInput input){
+                                           @RequestBody @Valid CreateCommentInput input) {
 
         CreateCommentInput updatedInput = input.toBuilder()
                 .roomId(roomId)
@@ -48,5 +49,20 @@ public class HotelController {
 
         return new ResponseEntity<>(output, HttpStatus.CREATED);
     }
+
+    @PutMapping("/comment/{commentId}")
+    public ResponseEntity<?> editComment(@PathVariable @Valid String commentId,
+                                         @RequestBody @Valid EditCommentInput input){
+
+        EditCommentInput updatedInput = input.toBuilder()
+                .commentId(commentId)
+                .build();
+
+        EditCommentOutput output = hotelService.editComment(updatedInput);
+
+        return new ResponseEntity<>(output, HttpStatus.OK);
+    }
+
+
 
 }

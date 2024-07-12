@@ -2,6 +2,8 @@ package com.tinqinacademy.comments.core;
 
 import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentInput;
 import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentOutput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetComment;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
@@ -70,6 +72,18 @@ public class HotelServiceImpl implements HotelService {
                 .build();
 
         log.info("End createComment with output: {}", output);
+        return output;
+    }
+
+    @Override
+    public EditCommentOutput editComment(EditCommentInput input) {
+        log.info("Start editComment with input: {}", input);
+
+        EditCommentOutput output = EditCommentOutput.builder()
+                .id("1")
+                .build();
+
+        log.info("End editComment with output: {}", output);
         return output;
     }
 
