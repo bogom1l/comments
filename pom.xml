@@ -11,6 +11,7 @@
 
 	<properties>
 		<revision>0.0.1-SNAPSHOT</revision>
+		<lombok.version>1.18.34</lombok.version> <!-- Lombok Version -->
 		<java.version>21</java.version>
 	</properties>
 
@@ -20,7 +21,7 @@
 
     <packaging>pom</packaging>
     <name>comments</name>
-	<description>Demo project for Spring Boot</description>
+	<description>comments service for hotel app</description>
 
     <modules>
         <module>persistence</module>
@@ -39,6 +40,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -48,6 +50,28 @@
 		</dependency>
 	</dependencies>
 
+
+	<!-- Flatten -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.2.7</version> <!-- Use the latest version -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+						<phase>process-resources</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- Optional configurations -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 
 </project>
