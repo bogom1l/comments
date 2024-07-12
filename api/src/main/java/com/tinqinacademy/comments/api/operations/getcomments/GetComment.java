@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @ToString
 
 public class GetComment {
+
     private String id;
     private String firstName;
     private String lastName;

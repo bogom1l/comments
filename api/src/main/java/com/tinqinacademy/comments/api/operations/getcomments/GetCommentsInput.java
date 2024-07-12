@@ -1,5 +1,6 @@
 package com.tinqinacademy.comments.api.operations.getcomments;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -9,5 +10,7 @@ import lombok.*;
 @Builder
 @ToString
 public class GetCommentsInput {
+
+    @NotBlank
     private String roomId;
 }
