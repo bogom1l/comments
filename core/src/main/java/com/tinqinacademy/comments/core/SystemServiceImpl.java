@@ -1,5 +1,7 @@
 package com.tinqinacademy.comments.core;
 
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
 import com.tinqinacademy.comments.core.contracts.SystemService;
@@ -18,6 +20,18 @@ public class SystemServiceImpl implements SystemService {
                 .build();
 
         log.info("End editCommentAdmin with output: {}", output);
+        return output;
+    }
+
+    @Override
+    public DeleteCommentAdminOutput deleteCommentAdmin(DeleteCommentAdminInput input) {
+        log.info("Start deleteCommentAdmin with input: {}", input);
+
+        DeleteCommentAdminOutput output = DeleteCommentAdminOutput
+                .builder()
+                .build();
+
+        log.info("End deleteCommentAdmin with output: {}", output);
         return output;
     }
 }
