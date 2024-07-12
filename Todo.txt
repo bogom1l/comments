@@ -1,9 +1,11 @@
 Todo:
 
-all endpoints
- * validation in POST/PUT/PATCH models - @NotNull, @Min/Max, ... ---> @Valid ✔️
- * @Operation, @ApiResponses
-- GlobalExceptionHandler ✔️
-- ObjectMapper ✔️
+✔️ all endpoints in the microservice "comments"
+    * validation in POST/PUT/PATCH models - @NotNull, @Min/Max, ... ---> @Valid
+✔️ GlobalExceptionHandler ✔️
+✔️ ObjectMapper ✔️
 
- ?replacement of requestmapping
+
+ ?replacement of requestmapping?
+
+
