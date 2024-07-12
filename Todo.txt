@@ -3,7 +3,7 @@ Todo:
 all endpoints
  * validation - @NotNull, @Min/Max, ... ---> @Valid
  * @Operation, @ApiResponses
- * GlobalExceptionHandler
- * ObjectMapper
+- GlobalExceptionHandler ✔️
+- ObjectMapper ✔️
 
  ?replacement of requestmapping
