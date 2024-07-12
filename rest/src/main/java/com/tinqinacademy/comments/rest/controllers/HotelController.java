@@ -38,7 +38,7 @@ public class HotelController {
     }
 
     @PostMapping("/{roomId}/comment")
-    public ResponseEntity<?> createComment(@PathVariable @Valid String roomId,
+    public ResponseEntity<?> createComment(@PathVariable String roomId,
                                            @RequestBody @Valid CreateCommentInput input) {
 
         CreateCommentInput updatedInput = input.toBuilder()
@@ -51,7 +51,7 @@ public class HotelController {
     }
 
     @PutMapping("/comment/{commentId}")
-    public ResponseEntity<?> editComment(@PathVariable @Valid String commentId,
+    public ResponseEntity<?> editComment(@PathVariable String commentId,
                                          @RequestBody @Valid EditCommentInput input){
 
         EditCommentInput updatedInput = input.toBuilder()
