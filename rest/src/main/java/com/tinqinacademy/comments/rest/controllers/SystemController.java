@@ -23,7 +23,7 @@ public class SystemController {
         this.systemService = systemService;
     }
 
-    @Operation(summary = "Edit comment (ADMIN)", description = "ADMIN edits any comment for a certain room")
+    @Operation(summary = "Edit any comment for a room", description = "Access level: ADMIN")
     @PutMapping("/comment/{commentId}")
     ResponseEntity<?> editCommentAdmin(@PathVariable String commentId,
                                        @RequestBody @Valid EditCommentAdminInput input) {
@@ -37,7 +37,7 @@ public class SystemController {
         return new ResponseEntity<>(output, HttpStatus.OK);
     }
 
-    @Operation(summary = "Delete comment (ADMIN)", description = "ADMIN deletes any comment for a certain room")
+    @Operation(summary = "Delete any comment for a room", description = "Access level: ADMIN")
     @DeleteMapping("/comment/{commentId}")
     ResponseEntity<?> deleteCommentAdmin(@PathVariable String commentId) {
 
