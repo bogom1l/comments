@@ -8,27 +8,25 @@
 		<version>3.3.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tinqinacademy</groupId>
-	<artifactId>comments</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>comments</name>
-	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
+		<revision>0.0.1-SNAPSHOT</revision>
 		<java.version>21</java.version>
 	</properties>
+
+	<groupId>com.tinqinacademy</groupId>
+	<artifactId>comments</artifactId>
+	<version>${revision}</version>
+
+    <packaging>pom</packaging>
+    <name>comments</name>
+	<description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>persistence</module>
+		<module>domain</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,6 +44,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
