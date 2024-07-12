@@ -1,7 +1,7 @@
 Todo:
 
 all endpoints
- * validation - @NotNull, @Min/Max, ... ---> @Valid
+ * validation in POST/PUT/PATCH models - @NotNull, @Min/Max, ... ---> @Valid ✔️
  * @Operation, @ApiResponses
 - GlobalExceptionHandler ✔️
 - ObjectMapper ✔️
