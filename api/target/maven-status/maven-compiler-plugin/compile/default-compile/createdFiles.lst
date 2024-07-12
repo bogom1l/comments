@@ -1,0 +1,5 @@
+com\tinqinacademy\comments\api\operations\createcomment\CreateCommentInput.class
+com\tinqinacademy\comments\api\operations\createcomment\CreateCommentOutput.class
+com\tinqinacademy\comments\api\operations\getcomments\GetCommentsOutput.class
+com\tinqinacademy\comments\api\operations\getcomments\GetCommentsInput.class
+com\tinqinacademy\comments\api\operations\getcomments\GetComment.class
