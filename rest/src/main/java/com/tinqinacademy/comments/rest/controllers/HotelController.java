@@ -7,7 +7,7 @@ import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.core.contracts.HotelService;
-import com.tinqinacademy.comments.rest.configurations.WebUrlConfiguration;
+import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-// @RequestMapping("/hotel")
 public class HotelController {
 
     private final HotelService hotelService;
@@ -26,10 +25,8 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
-    @Operation(summary = "Get all comments for a room", description = "Access level: PUBLIC")
-    // @GetMapping("/{roomId}/comment")
-    // @RequestMapping(value = WebUrlConfiguration.API_HOTEL + "/{roomId}/comment", method = RequestMethod.GET)
-    @GetMapping(WebUrlConfiguration.API_HOTEL + "/{roomId}/comment")
+    @Operation(summary = "Get all comments for a room", description = "Get all comments for a room")
+    @GetMapping(RestApiRoutes.GET_ALL_COMMENTS)
     public ResponseEntity<?> getAllComments(@PathVariable @Valid String roomId) {
 
         GetCommentsInput input = GetCommentsInput.builder()
@@ -41,8 +38,8 @@ public class HotelController {
         return new ResponseEntity<>(output, HttpStatus.OK);
     }
 
-    @Operation(summary = "Create a comment for a room", description = "Access level: REGISTERED")
-    @PostMapping(WebUrlConfiguration.API_HOTEL + "/{roomId}/comment")
+    @Operation(summary = "Create a comment for a room", description = "Create a comment for a room")
+    @PostMapping(RestApiRoutes.CREATE_COMMENT)
     public ResponseEntity<?> createComment(@PathVariable String roomId,
                                            @RequestBody @Valid CreateCommentInput input) {
 
@@ -55,8 +52,8 @@ public class HotelController {
         return new ResponseEntity<>(output, HttpStatus.CREATED);
     }
 
-    @Operation(summary = "Edit own comment for a room", description = "Access level: REGISTERED")
-    @PutMapping(WebUrlConfiguration.API_HOTEL + "/comment/{commentId}")
+    @Operation(summary = "Edit own comment for a room", description = "Edit own comment for a room")
+    @PutMapping(RestApiRoutes.EDIT_COMMENT)
     public ResponseEntity<?> editComment(@PathVariable String commentId,
                                          @RequestBody @Valid EditCommentInput input) {
 

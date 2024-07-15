@@ -5,8 +5,18 @@ Todo:
 ✔️ GlobalExceptionHandler
 ✔️ ObjectMapper
 
-✔️ replacement of request mapping - @GetMapping(WebUrlConfiguration.API_HOTEL + "/{roomId}/comment")
 
+✔️ v @Operation summary i description da sa ednakvi
+
+✔️ replacement of request mapping - @GetMapping(RestApiRoutes.GET_ALL_COMMENTS)
+
+mestim dependecytata ot glavniq pom vuv vseki modul koeto kudeto se polzva samo
+swagger v rest
+validation anotations v api
+
+mvn clean install -U
+
+i sushtite promeni da applyna i v Hotel microservice-a
 
 Integration Tests
  * choose a library and write an integration test
