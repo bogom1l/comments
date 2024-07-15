@@ -1,5 +1,6 @@
 package com.tinqinacademy.comments.rest.controllers;
 
+import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,15 +13,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class HotelControllerTest {
+class HotelControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     void getAllComments() throws Exception {
-        mockMvc.perform(get("/api/v1/hotel/{roomId}/comment", "1")
+        mockMvc.perform(get(RestApiRoutes.GET_ALL_COMMENTS, "1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void getAllComments_WrongUrl_ReturnsNotFound() throws Exception {
+
+        mockMvc.perform(get(RestApiRoutes.GET_ALL_COMMENTS + "/aaaaaa", "1")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 }
