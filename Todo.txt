@@ -10,10 +10,10 @@ Todo:
 
 ✔️ reorder dependencies
 
-add flattenpoms in .gitignore
-*/.flattened-pom.xml
-**/*.flattened-pom.xml
-**/*.flattened-pom.xml
+✔️ add flattenpoms in .gitignore
+    **/*.flattened-pom.xml
+    git rm --cached **/*.flattened-pom.xml
+
 
 Integration Tests
  * choose a library and write a simple integration test (test rest responses from controllers)
