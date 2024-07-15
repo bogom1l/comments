@@ -15,6 +15,6 @@ Todo:
     git rm --cached **/*.flattened-pom.xml
 
 
-Integration Tests
- * choose a library and write a simple integration test (test rest responses from controllers)
+✔️ Integration Tests
+   * choose a library and write a simple integration test (test rest responses from controllers)
 

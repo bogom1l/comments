@@ -1,0 +1,17 @@
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\contracts\ErrorService.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\contracts\HotelService.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\contracts\SystemService.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\error\CommentException.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\error\Error.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\error\ErrorWrapper.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\createcomment\CreateCommentInput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\createcomment\CreateCommentOutput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\deletecommentadmin\DeleteCommentAdminInput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\deletecommentadmin\DeleteCommentAdminOutput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\editcomment\EditCommentInput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\editcomment\EditCommentOutput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\editcommentadmin\EditCommentAdminInput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\editcommentadmin\EditCommentAdminOutput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\getcomments\GetComment.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\getcomments\GetCommentsInput.java
+C:\Users\TinqinGuest\Documents\GitHub\comments\api\src\main\java\com\tinqinacademy\comments\api\operations\getcomments\GetCommentsOutput.java
