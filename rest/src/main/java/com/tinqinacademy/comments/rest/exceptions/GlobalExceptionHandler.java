@@ -3,7 +3,7 @@ package com.tinqinacademy.comments.rest.exceptions;
 
 import com.tinqinacademy.comments.api.error.CommentException;
 import com.tinqinacademy.comments.api.error.ErrorWrapper;
-import com.tinqinacademy.comments.core.contracts.ErrorService;
+import com.tinqinacademy.comments.api.contracts.ErrorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
