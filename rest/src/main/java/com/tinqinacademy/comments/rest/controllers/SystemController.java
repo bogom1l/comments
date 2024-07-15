@@ -5,6 +5,7 @@ import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommen
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
 import com.tinqinacademy.comments.core.contracts.SystemService;
+import com.tinqinacademy.comments.rest.configurations.WebUrlConfiguration;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/system")
+// @RequestMapping("/system")
 public class SystemController {
 
     private final SystemService systemService;
@@ -24,7 +25,7 @@ public class SystemController {
     }
 
     @Operation(summary = "Edit any comment for a room", description = "Access level: ADMIN")
-    @PutMapping("/comment/{commentId}")
+    @PutMapping(WebUrlConfiguration.API_SYSTEM + "/comment/{commentId}")
     ResponseEntity<?> editCommentAdmin(@PathVariable String commentId,
                                        @RequestBody @Valid EditCommentAdminInput input) {
 
@@ -38,7 +39,7 @@ public class SystemController {
     }
 
     @Operation(summary = "Delete any comment for a room", description = "Access level: ADMIN")
-    @DeleteMapping("/comment/{commentId}")
+    @DeleteMapping(WebUrlConfiguration.API_SYSTEM + "/comment/{commentId}")
     ResponseEntity<?> deleteCommentAdmin(@PathVariable String commentId) {
 
         DeleteCommentAdminInput input = DeleteCommentAdminInput

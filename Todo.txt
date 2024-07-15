@@ -2,10 +2,12 @@ Todo:
 
 ✔️ all endpoints in the microservice "comments"
     * validation in POST/PUT/PATCH models - @NotNull, @Min/Max, ... ---> @Valid
-✔️ GlobalExceptionHandler ✔️
-✔️ ObjectMapper ✔️
+✔️ GlobalExceptionHandler
+✔️ ObjectMapper
+
+✔️ replacement of request mapping - @GetMapping(WebUrlConfiguration.API_HOTEL + "/{roomId}/comment")
 
 
- ?replacement of requestmapping?
-
+Integration Tests
+ * choose a library and write an integration test
 
