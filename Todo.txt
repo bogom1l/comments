@@ -6,18 +6,15 @@ Todo:
 ✔️ ObjectMapper
 
 
-✔️ v @Operation summary i description da sa ednakvi
-
 ✔️ replacement of request mapping - @GetMapping(RestApiRoutes.GET_ALL_COMMENTS)
 
-mestim dependecytata ot glavniq pom vuv vseki modul koeto kudeto se polzva samo
-swagger v rest
-validation anotations v api
+✔️ reorder dependencies
 
-mvn clean install -U
-
-i sushtite promeni da applyna i v Hotel microservice-a
+add flattenpoms in .gitignore
+*/.flattened-pom.xml
+**/*.flattened-pom.xml
+**/*.flattened-pom.xml
 
 Integration Tests
- * choose a library and write an integration test
+ * choose a library and write a simple integration test (test rest responses from controllers)
 
