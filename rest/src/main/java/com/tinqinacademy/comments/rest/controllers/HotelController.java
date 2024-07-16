@@ -63,6 +63,7 @@ public class HotelController {
 
         EditCommentOutput output = hotelService.editComment(updatedInput);
 
+        // return ResponseEntity.ok(output);
         return new ResponseEntity<>(output, HttpStatus.OK);
     }
 
