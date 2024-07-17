@@ -18,6 +18,9 @@ Todo:
 ✔️ Integration Tests
    * choose a library and write a simple integration test (test rest responses from controllers)
 
-da dobavq dependency za docker postgre
-i v applicationproperties da svurja
-i posle da testvam nqkak si che raboti
+✔️ dependency za postgre
+✔️ application.properties connection docker postgre
+
+<groupId>com.tinqinacademy.comment</groupId>
+<groupId>com.tinqinacademy.hotel</groupId>
+
