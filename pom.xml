@@ -17,7 +17,7 @@
 		<postgre.version>42.7.3</postgre.version> <!-- PostgreSQL Version -->
 	</properties>
 
-	<groupId>com.tinqinacademy</groupId>
+	<groupId>com.tinqinacademy.comments</groupId>
 	<artifactId>comments</artifactId>
 	<version>${revision}</version>
 
