@@ -21,6 +21,6 @@ Todo:
 ✔️ dependency za postgre
 ✔️ application.properties connection docker postgre
 
-<groupId>com.tinqinacademy.comment</groupId>
-<groupId>com.tinqinacademy.hotel</groupId>
+✔️ <groupId>com.tinqinacademy.comment</groupId>
+
 
