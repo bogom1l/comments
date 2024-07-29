@@ -26,9 +26,8 @@ Todo:
 ----------------------------------------------------------
 
 ✔️ Fixed gitignore
-
-❌ Implement DB entities (JPA)
-❌ Configure new db in docker?
+✔️ Implement DB entity Comment (JPA)
+✔️ Configure new db in docker?
 
 ❌ Implement all endpoints (JPA)
 
