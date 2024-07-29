@@ -23,4 +23,10 @@ Todo:
 
 ✔️ <groupId>com.tinqinacademy.comment</groupId>
 
+----------------------------------------------------------
 
+❌ Implement DB entities (JPA)
+
+❌ Implement all endpoints (JPA)
+
+❌ Configure new db in docker?
