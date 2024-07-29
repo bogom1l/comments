@@ -23,4 +23,13 @@ Todo:
 
 ✔️ <groupId>com.tinqinacademy.comment</groupId>
 
+----------------------------------------------------------
+
+✔️ Fixed gitignore
+✔️ Implement DB entity Comment (JPA)
+✔️ Configure new db in docker?
+
+❌❌❌add desktop folder "databases" , inside add the "docker-compose.yaml", and then just docker-compose up -d
+
+❌ Implement all endpoints (JPA)
 
