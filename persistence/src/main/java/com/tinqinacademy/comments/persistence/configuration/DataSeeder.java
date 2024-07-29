@@ -32,7 +32,7 @@ public class DataSeeder implements ApplicationRunner {
 
     private void seedComments() {
         if (commentRepository.count() != 0) {
-            log.info("DataSeeder - didn't seed any bed comments");
+            log.info("DataSeeder - didn't seed any comments");
             return;
         }
 
