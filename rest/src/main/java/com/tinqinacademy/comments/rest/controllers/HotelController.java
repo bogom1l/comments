@@ -6,6 +6,8 @@ import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentIn
 import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentOutput;
 import com.tinqinacademy.comments.persistence.operations.editcomment.EditCommentInput;
 import com.tinqinacademy.comments.persistence.operations.editcomment.EditCommentOutput;
+import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminInput;
+import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminOutput;
 import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
@@ -77,6 +79,5 @@ public class HotelController {
 
         return new ResponseEntity<>(output, HttpStatus.OK);
     }
-
 
 }

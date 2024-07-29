@@ -1,9 +1,10 @@
 package com.tinqinacademy.comments.core.contracts;
 
-import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
-import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
-import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
-import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
+
+import com.tinqinacademy.comments.persistence.operations.deletecommentadmin.DeleteCommentAdminInput;
+import com.tinqinacademy.comments.persistence.operations.deletecommentadmin.DeleteCommentAdminOutput;
+import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminInput;
+import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminOutput;
 
 public interface SystemService {
 

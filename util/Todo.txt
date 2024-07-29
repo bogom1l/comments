@@ -29,5 +29,5 @@ Todo:
 ✔️ Implement DB entity Comment (JPA)
 ✔️ Configure new db in docker?
 
-❌ Implement all endpoints (JPA)
+✔️ Implement all endpoints (JPA) (mocked data)
 

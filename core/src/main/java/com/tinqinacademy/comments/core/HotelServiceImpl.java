@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -75,6 +76,8 @@ public class HotelServiceImpl implements HotelService {
                 .orElseThrow(() -> new CommentException("Comment not found"));
 
         comment.setContent(input.getContent());
+        comment.setLastEditedDate(LocalDate.now());
+        comment.setLastEditedBy("USER"); // todo; user
 
         commentRepository.save(comment);
 

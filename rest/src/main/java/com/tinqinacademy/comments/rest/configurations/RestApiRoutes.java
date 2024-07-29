@@ -11,6 +11,6 @@ public class RestApiRoutes {
     public static final String ADD_COMMENT = API_HOTEL + "/{roomId}" + COMMENT;
     public static final String EDIT_COMMENT = API_HOTEL + COMMENT + "/{commentId}";
 
-    public static final String ADMIN_EDIT_COMMENT = API_SYSTEM + COMMENT + "/{commentId}";
-    public static final String ADMIN_DELETE_COMMENT = API_SYSTEM + COMMENT + "/{commentId}";
+    public static final String EDIT_COMMENT_ADMIN = API_SYSTEM + COMMENT + "/{commentId}";
+    public static final String DELETE_COMMENT_ADMIN = API_SYSTEM + COMMENT + "/{commentId}";
 }
