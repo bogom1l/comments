@@ -8,7 +8,7 @@ public class RestApiRoutes {
     private static final String COMMENT = "/comment";
 
     public static final String GET_ALL_COMMENTS = API_HOTEL + "/{roomId}" + COMMENT;
-    public static final String CREATE_COMMENT = API_HOTEL + "/{roomId}" + COMMENT;
+    public static final String ADD_COMMENT = API_HOTEL + "/{roomId}" + COMMENT;
     public static final String EDIT_COMMENT = API_HOTEL + COMMENT + "/{commentId}";
 
     public static final String ADMIN_EDIT_COMMENT = API_SYSTEM + COMMENT + "/{commentId}";

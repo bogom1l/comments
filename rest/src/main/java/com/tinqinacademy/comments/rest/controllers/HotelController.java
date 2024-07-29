@@ -1,15 +1,15 @@
 package com.tinqinacademy.comments.rest.controllers;
 
-import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentInput;
-import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentOutput;
-import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
-import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
-import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
-import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
-import com.tinqinacademy.comments.api.contracts.HotelService;
+
+import com.tinqinacademy.comments.core.contracts.HotelService;
+import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentInput;
+import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentOutput;
+import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsInput;
+import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
-import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,10 +25,13 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
-    @Operation(summary = "Get all comments for a room", description = "Get all comments for a room")
+    @Operation(summary = "Get all comments for a room",
+            description = "Get all comments for a room")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved comments"),
+            @ApiResponse(responseCode = "404", description = "Room not found")})
     @GetMapping(RestApiRoutes.GET_ALL_COMMENTS)
-    public ResponseEntity<?> getAllComments(@PathVariable @Valid String roomId) {
-
+    public ResponseEntity<?> getAllComments(@PathVariable String roomId) {
         GetCommentsInput input = GetCommentsInput.builder()
                 .roomId(roomId)
                 .build();
@@ -38,34 +41,36 @@ public class HotelController {
         return new ResponseEntity<>(output, HttpStatus.OK);
     }
 
-    @Operation(summary = "Create a comment for a room", description = "Create a comment for a room")
-    @PostMapping(RestApiRoutes.CREATE_COMMENT)
-    public ResponseEntity<?> createComment(@PathVariable String roomId,
-                                           @RequestBody @Valid CreateCommentInput input) {
-
-        CreateCommentInput updatedInput = input.toBuilder()
+    @Operation(summary = "Add a comment for a room",
+            description = "Add a comment for a room")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Successfully added comment"),
+            @ApiResponse(responseCode = "404", description = "Room not found")})
+    @PostMapping(RestApiRoutes.ADD_COMMENT)
+    public ResponseEntity<?> addComment(@PathVariable String roomId, @RequestBody AddCommentInput input) {
+        AddCommentInput updatedInput = input.toBuilder()
                 .roomId(roomId)
                 .build();
 
-        CreateCommentOutput output = hotelService.createComment(updatedInput);
+        AddCommentOutput output = hotelService.addComment(updatedInput);
 
         return new ResponseEntity<>(output, HttpStatus.CREATED);
     }
 
-    @Operation(summary = "Edit own comment for a room", description = "Edit own comment for a room")
-    @PutMapping(RestApiRoutes.EDIT_COMMENT)
-    public ResponseEntity<?> editComment(@PathVariable String commentId,
-                                         @RequestBody @Valid EditCommentInput input) {
-
-        EditCommentInput updatedInput = input.toBuilder()
-                .commentId(commentId)
-                .build();
-
-        EditCommentOutput output = hotelService.editComment(updatedInput);
-
-        // return ResponseEntity.ok(output);
-        return new ResponseEntity<>(output, HttpStatus.OK);
-    }
+//    @Operation(summary = "Edit own comment for a room", description = "Edit own comment for a room")
+//    @PutMapping(RestApiRoutes.EDIT_COMMENT)
+//    public ResponseEntity<?> editComment(@PathVariable String commentId,
+//                                         @RequestBody @Valid EditCommentInput input) {
+//
+//        EditCommentInput updatedInput = input.toBuilder()
+//                .commentId(commentId)
+//                .build();
+//
+//        EditCommentOutput output = hotelService.editComment(updatedInput);
+//
+//        // return ResponseEntity.ok(output);
+//        return new ResponseEntity<>(output, HttpStatus.OK);
+//    }
 
 
 }

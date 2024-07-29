@@ -1,24 +1,76 @@
 package com.tinqinacademy.comments.core;
 
-import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentInput;
-import com.tinqinacademy.comments.api.operations.createcomment.CreateCommentOutput;
-import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
-import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
-import com.tinqinacademy.comments.api.operations.getcomments.GetComment;
-import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
-import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
-import com.tinqinacademy.comments.api.contracts.HotelService;
+
+import com.tinqinacademy.comments.core.contracts.HotelService;
+import com.tinqinacademy.comments.persistence.entity.Comment;
+import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentInput;
+import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentOutput;
+import com.tinqinacademy.comments.persistence.operations.getcomments.CommentInput;
+import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsInput;
+import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsOutput;
+import com.tinqinacademy.comments.persistence.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @Slf4j
 public class HotelServiceImpl implements HotelService {
 
+    private final CommentRepository commentRepository;
+    private final ConversionService conversionService;
+
+    public HotelServiceImpl(CommentRepository commentRepository, ConversionService conversionService) {
+        this.commentRepository = commentRepository;
+        this.conversionService = conversionService;
+    }
+
+    @Override
+    public GetCommentsOutput getComments(GetCommentsInput input) {
+        log.info("Started getComments with input: {}", input);
+
+        // search room by roomId
+        // get all comments for that room
+        // convert comments to CommentInput
+
+        List<Comment> comments = commentRepository.findAll();
+
+        List<CommentInput> commentInputs = comments.stream()
+                .map(comment -> conversionService.convert(comment, CommentInput.class))
+                .toList();
+
+        GetCommentsOutput output = GetCommentsOutput.builder()
+                .comments(commentInputs)
+                .build();
+
+        log.info("Ended getComments with output: {}", output);
+        return output;
+    }
+
+    @Override
+    public AddCommentOutput addComment(AddCommentInput input) {
+        log.info("Started addComment with input: {}", input);
+
+        Comment comment = conversionService.convert(input, Comment.class);
+
+        commentRepository.save(comment);
+
+        AddCommentOutput output = conversionService.convert(comment, AddCommentOutput.class);
+
+        log.info("Ended addComment with output: {}", output);
+        return output;
+    }
+
+
+//
+//    @Override
+//    public EditCommentOutput editComment(EditCommentInput input) {
+//        return null;
+//    }
+
+    /*
     @Override
     public GetCommentsOutput getComments(GetCommentsInput input) {
         log.info("Start getComments with input: {}", input);
@@ -63,6 +115,7 @@ public class HotelServiceImpl implements HotelService {
         return randomComments;
     }
 
+
     @Override
     public CreateCommentOutput createComment(CreateCommentInput input) {
         log.info("Start createComment with input: {}", input);
@@ -87,4 +140,6 @@ public class HotelServiceImpl implements HotelService {
         return output;
     }
 
+
+     */
 }

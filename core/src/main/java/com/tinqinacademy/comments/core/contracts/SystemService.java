@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.api.contracts;
+package com.tinqinacademy.comments.core.contracts;
 
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;

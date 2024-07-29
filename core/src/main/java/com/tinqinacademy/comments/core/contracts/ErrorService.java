@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.api.contracts;
+package com.tinqinacademy.comments.core.contracts;
 
 import com.tinqinacademy.comments.api.error.ErrorWrapper;
 import org.springframework.web.bind.MethodArgumentNotValidException;
