@@ -2,12 +2,13 @@ package com.tinqinacademy.comments.api.operations.editcomment;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 public class EditCommentOutput {
-    private String id;
+    private UUID id;
 }

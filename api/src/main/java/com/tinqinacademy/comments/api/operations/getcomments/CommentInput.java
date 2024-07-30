@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.persistence.operations.getcomments;
+package com.tinqinacademy.comments.api.operations.getcomments;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

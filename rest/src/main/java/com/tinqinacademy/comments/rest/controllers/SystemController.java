@@ -1,11 +1,11 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
-import com.tinqinacademy.comments.core.contracts.SystemService;
-import com.tinqinacademy.comments.persistence.operations.deletecommentadmin.DeleteCommentAdminInput;
-import com.tinqinacademy.comments.persistence.operations.deletecommentadmin.DeleteCommentAdminOutput;
-import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminInput;
-import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminOutput;
+import com.tinqinacademy.comments.core.services.contracts.SystemService;
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
+import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

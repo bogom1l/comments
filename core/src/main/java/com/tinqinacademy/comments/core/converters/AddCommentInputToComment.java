@@ -1,7 +1,7 @@
 package com.tinqinacademy.comments.core.converters;
 
 import com.tinqinacademy.comments.persistence.entity.Comment;
-import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentInput;
+import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

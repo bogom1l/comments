@@ -1,5 +1,6 @@
 package com.tinqinacademy.comments.api.operations.deletecommentadmin;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @Getter
@@ -7,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 public class DeleteCommentAdminInput {
+    @JsonIgnore
     private String commentId;
 }

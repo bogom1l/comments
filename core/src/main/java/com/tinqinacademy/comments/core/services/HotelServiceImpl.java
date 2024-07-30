@@ -1,16 +1,16 @@
-package com.tinqinacademy.comments.core;
+package com.tinqinacademy.comments.core.services;
 
 
-import com.tinqinacademy.comments.api.error.CommentException;
-import com.tinqinacademy.comments.core.contracts.HotelService;
+import com.tinqinacademy.comments.api.exceptions.CommentException;
+import com.tinqinacademy.comments.core.services.contracts.HotelService;
 import com.tinqinacademy.comments.persistence.entity.Comment;
-import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentInput;
-import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentOutput;
-import com.tinqinacademy.comments.persistence.operations.editcomment.EditCommentInput;
-import com.tinqinacademy.comments.persistence.operations.editcomment.EditCommentOutput;
-import com.tinqinacademy.comments.persistence.operations.getcomments.CommentInput;
-import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsInput;
-import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsOutput;
+import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
+import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOutput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
+import com.tinqinacademy.comments.api.operations.getcomments.CommentInput;
+import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
+import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.ConversionService;

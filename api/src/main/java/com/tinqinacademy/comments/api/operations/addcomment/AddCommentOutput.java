@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.persistence.operations.addcomment;
+package com.tinqinacademy.comments.api.operations.addcomment;
 
 import lombok.*;
 

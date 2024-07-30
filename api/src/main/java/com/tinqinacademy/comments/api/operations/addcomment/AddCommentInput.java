@@ -1,7 +1,6 @@
-package com.tinqinacademy.comments.persistence.operations.editcomment;
+package com.tinqinacademy.comments.api.operations.addcomment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -9,11 +8,15 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class EditCommentInput {
+public class AddCommentInput {
 
     @JsonIgnore
-    private String commentId;
+    private String roomId;
 
-    @NotBlank
     private String content;
+
+    private String firstName; //user
+
+    private String lastName; //user
+
 }

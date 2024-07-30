@@ -1,13 +1,13 @@
-package com.tinqinacademy.comments.core;
+package com.tinqinacademy.comments.core.services;
 
 
-import com.tinqinacademy.comments.api.error.CommentException;
-import com.tinqinacademy.comments.core.contracts.SystemService;
+import com.tinqinacademy.comments.api.exceptions.CommentException;
+import com.tinqinacademy.comments.core.services.contracts.SystemService;
 import com.tinqinacademy.comments.persistence.entity.Comment;
-import com.tinqinacademy.comments.persistence.operations.deletecommentadmin.DeleteCommentAdminInput;
-import com.tinqinacademy.comments.persistence.operations.deletecommentadmin.DeleteCommentAdminOutput;
-import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminInput;
-import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminOutput;
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
+import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.ConversionService;

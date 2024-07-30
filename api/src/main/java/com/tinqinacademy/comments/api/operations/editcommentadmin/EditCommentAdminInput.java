@@ -9,21 +9,17 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-@ToString
 public class EditCommentAdminInput {
 
     @JsonIgnore
     private String commentId;
 
-    @NotBlank(message = "roomNo is mandatory")
-    private String roomNo;
-
-    @NotBlank(message = "firstName is mandatory")
-    private String firstName;
-
-    @NotBlank(message = "lastName is mandatory")
-    private String lastName;
-
-    @NotBlank(message = "content is mandatory")
+    @NotBlank
     private String content;
+
+    private String roomNumber;
+
+    private String firstName; //
+
+    private String lastName; //
 }

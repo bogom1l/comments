@@ -1,15 +1,13 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
-import com.tinqinacademy.comments.core.contracts.HotelService;
-import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentInput;
-import com.tinqinacademy.comments.persistence.operations.addcomment.AddCommentOutput;
-import com.tinqinacademy.comments.persistence.operations.editcomment.EditCommentInput;
-import com.tinqinacademy.comments.persistence.operations.editcomment.EditCommentOutput;
-import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminInput;
-import com.tinqinacademy.comments.persistence.operations.editcommentadmin.EditCommentAdminOutput;
-import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsInput;
-import com.tinqinacademy.comments.persistence.operations.getcomments.GetCommentsOutput;
+import com.tinqinacademy.comments.core.services.contracts.HotelService;
+import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
+import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOutput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
+import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
+import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
