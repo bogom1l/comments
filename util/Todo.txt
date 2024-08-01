@@ -33,4 +33,4 @@ Todo:
 
 ----------------------------------------------------------
 
-Implement
+✔️ Implement all Processors endpoints
