@@ -63,7 +63,35 @@ public class DataSeeder implements ApplicationRunner {
                 .lastEditedBy("Bob")
                 .build();
 
-        commentRepository.saveAll(List.of(comment1, comment2, comment3));
+        Comment comment4 = Comment.builder()
+                .firstName("Emily")
+                .lastName("Smith")
+                .content("Great service and friendly staff!")
+                .publishDate(LocalDate.parse("2023-03-10"))
+                .lastEditedDate(LocalDate.parse("2023-03-12"))
+                .lastEditedBy("Admin")
+                .build();
+
+        Comment comment5 = Comment.builder()
+                .firstName("Michael")
+                .lastName("Brown")
+                .content("The room was clean and well-maintained.")
+                .publishDate(LocalDate.parse("2023-04-15"))
+                .lastEditedDate(LocalDate.parse("2023-04-16"))
+                .lastEditedBy("Admin")
+                .build();
+
+        Comment comment6 = Comment.builder()
+                .firstName("Sarah")
+                .lastName("Davis")
+                .content("Had a wonderful stay, will come back again!")
+                .publishDate(LocalDate.parse("2023-05-20"))
+                .lastEditedDate(LocalDate.parse("2023-05-21"))
+                .lastEditedBy("Admin")
+                .build();
+
+        commentRepository.saveAll(List.of(comment1, comment2, comment3,
+                comment4, comment5, comment6));
         log.info("DataSeeder - Seeded comments");
     }
 }

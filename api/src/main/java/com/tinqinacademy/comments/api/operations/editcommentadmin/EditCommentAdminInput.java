@@ -10,7 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class EditCommentAdminInput {
-
     @JsonIgnore
     private String commentId;
 

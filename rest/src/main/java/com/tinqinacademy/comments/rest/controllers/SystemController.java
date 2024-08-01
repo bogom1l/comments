@@ -1,11 +1,11 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
-import com.tinqinacademy.comments.core.services.contracts.SystemService;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
+import com.tinqinacademy.comments.core.services.contracts.SystemService;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-// @RequestMapping("/system")
 public class SystemController {
 
     private final SystemService systemService;
@@ -27,7 +26,6 @@ public class SystemController {
         this.systemService = systemService;
     }
 
-
     @Operation(summary = "Edit any comment for a room",
             description = "Edit any comment for a room")
     @ApiResponses(value = {
@@ -36,7 +34,6 @@ public class SystemController {
     @PatchMapping(RestApiRoutes.EDIT_COMMENT_ADMIN)
     public ResponseEntity<?> editCommentAdmin(@PathVariable String commentId,
                                               @RequestBody @Valid EditCommentAdminInput input) {
-
         EditCommentAdminInput updatedInput = input.toBuilder()
                 .commentId(commentId)
                 .build();
@@ -54,7 +51,6 @@ public class SystemController {
             @ApiResponse(responseCode = "404", description = "Room not found")})
     @DeleteMapping(RestApiRoutes.DELETE_COMMENT_ADMIN)
     ResponseEntity<?> deleteCommentAdmin(@PathVariable String commentId) {
-
         DeleteCommentAdminInput input = DeleteCommentAdminInput
                 .builder()
                 .commentId(commentId)

@@ -9,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class AddCommentInput {
-
     @JsonIgnore
     private String roomId;
 
@@ -18,5 +17,4 @@ public class AddCommentInput {
     private String firstName; //user
 
     private String lastName; //user
-
 }

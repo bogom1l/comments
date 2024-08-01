@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Builder
 @ToString
 public class CommentInput {
-
     @NotBlank
     private String id;
 

@@ -1,7 +1,7 @@
 package com.tinqinacademy.comments.core.converters;
 
-import com.tinqinacademy.comments.persistence.entity.Comment;
 import com.tinqinacademy.comments.api.operations.getcomments.CommentInput;
+import com.tinqinacademy.comments.persistence.entity.Comment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class CommentToCommentInput implements Converter<Comment, CommentInput> {
-
     @Override
     public CommentInput convert(Comment source) {
         log.info("Started Converter - Comment to CommentInput");
