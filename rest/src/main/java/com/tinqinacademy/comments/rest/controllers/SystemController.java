@@ -1,29 +1,30 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
+import com.tinqinacademy.comments.api.errorhandler.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOperation;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
+import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOperation;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
-import com.tinqinacademy.comments.core.services.contracts.SystemService;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import io.vavr.control.Either;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class SystemController {
+public class SystemController extends BaseController {
 
-    private final SystemService systemService;
+    private final DeleteCommentAdminOperation deleteCommentAdmin;
+    private final EditCommentAdminOperation editCommentAdmin;
 
-    @Autowired
-    public SystemController(SystemService systemService) {
-        this.systemService = systemService;
+    public SystemController(DeleteCommentAdminOperation deleteCommentAdmin, EditCommentAdminOperation editCommentAdmin) {
+        this.deleteCommentAdmin = deleteCommentAdmin;
+        this.editCommentAdmin = editCommentAdmin;
     }
 
     @Operation(summary = "Edit any comment for a room",
@@ -33,16 +34,14 @@ public class SystemController {
             @ApiResponse(responseCode = "404", description = "Room not found")})
     @PatchMapping(RestApiRoutes.EDIT_COMMENT_ADMIN)
     public ResponseEntity<?> editCommentAdmin(@PathVariable String commentId,
-                                              @RequestBody @Valid EditCommentAdminInput input) {
+                                              @RequestBody EditCommentAdminInput input) {
         EditCommentAdminInput updatedInput = input.toBuilder()
                 .commentId(commentId)
                 .build();
 
-        EditCommentAdminOutput output = systemService.editCommentAdmin(updatedInput);
-
-        return new ResponseEntity<>(output, HttpStatus.OK);
+        Either<ErrorsWrapper, EditCommentAdminOutput> output = editCommentAdmin.process(updatedInput);
+        return handle(output);
     }
-
 
     @Operation(summary = "Delete any comment for a room",
             description = "Delete any comment for a room")
@@ -56,9 +55,9 @@ public class SystemController {
                 .commentId(commentId)
                 .build();
 
-        DeleteCommentAdminOutput output = systemService.deleteCommentAdmin(input);
+        Either<ErrorsWrapper, DeleteCommentAdminOutput> output = deleteCommentAdmin.process(input);
 
-        return new ResponseEntity<>(output, HttpStatus.OK);
+        return handle(output);
     }
 
 }

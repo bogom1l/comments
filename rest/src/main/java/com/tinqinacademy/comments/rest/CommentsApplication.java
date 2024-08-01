@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.tinqinacademy.comments")
-@EntityScan(basePackages = "com.tinqinacademy.comments.persistence.entity")
+@EntityScan(basePackages = "com.tinqinacademy.comments.persistence.model")
 @EnableJpaRepositories(basePackages = "com.tinqinacademy.comments.persistence.repository")
 public class CommentsApplication {
 

@@ -1,6 +1,7 @@
 package com.tinqinacademy.comments.api.operations.addcomment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tinqinacademy.comments.api.base.OperationInput;
 import lombok.*;
 
 @Getter
@@ -8,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class AddCommentInput {
+public class AddCommentInput implements OperationInput {
     @JsonIgnore
     private String roomId;
 

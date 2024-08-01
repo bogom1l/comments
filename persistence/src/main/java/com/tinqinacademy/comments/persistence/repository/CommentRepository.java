@@ -1,6 +1,6 @@
 package com.tinqinacademy.comments.persistence.repository;
 
-import com.tinqinacademy.comments.persistence.entity.Comment;
+import com.tinqinacademy.comments.persistence.model.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.api.error;
+package com.tinqinacademy.comments.api.errorhandler;
 
 import lombok.*;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @ToString
-public class ErrorWrapper {
+public class ErrorsWrapper {
     private List<Error> errors;
-    private HttpStatus errorCode;
+    private HttpStatus httpStatus;
 }
-

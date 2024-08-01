@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.persistence.entity;
+package com.tinqinacademy.comments.persistence.model;
 
 import jakarta.persistence.*;
 import lombok.*;

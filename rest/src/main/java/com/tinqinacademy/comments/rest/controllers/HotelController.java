@@ -1,31 +1,36 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
+import com.tinqinacademy.comments.api.errorhandler.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
+import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOperation;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOutput;
 import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
+import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOperation;
 import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
+import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOperation;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
-import com.tinqinacademy.comments.core.services.contracts.HotelService;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.vavr.control.Either;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class HotelController {
+public class HotelController extends BaseController {
 
-    private final HotelService hotelService;
+    private final GetCommentsOperation getComments;
+    private final AddCommentOperation addComment;
+    private final EditCommentOperation editComment;
 
-    @Autowired
-    public HotelController(HotelService hotelService) {
-        this.hotelService = hotelService;
+    public HotelController(GetCommentsOperation getComments, AddCommentOperation addComment, EditCommentOperation editComment) {
+        this.getComments = getComments;
+        this.addComment = addComment;
+        this.editComment = editComment;
     }
 
     @Operation(summary = "Get all comments for a room",
@@ -39,9 +44,8 @@ public class HotelController {
                 .roomId(roomId)
                 .build();
 
-        GetCommentsOutput output = hotelService.getComments(input);
-
-        return new ResponseEntity<>(output, HttpStatus.OK);
+        Either<ErrorsWrapper, GetCommentsOutput> output = getComments.process(input);
+        return handle(output);
     }
 
     @Operation(summary = "Add a comment for a room",
@@ -50,14 +54,14 @@ public class HotelController {
             @ApiResponse(responseCode = "201", description = "Successfully added comment"),
             @ApiResponse(responseCode = "404", description = "Room not found")})
     @PostMapping(RestApiRoutes.ADD_COMMENT)
-    public ResponseEntity<?> addComment(@PathVariable String roomId, @RequestBody AddCommentInput input) {
+    public ResponseEntity<?> addComment(@PathVariable String roomId,
+                                        @RequestBody AddCommentInput input) {
         AddCommentInput updatedInput = input.toBuilder()
                 .roomId(roomId)
                 .build();
 
-        AddCommentOutput output = hotelService.addComment(updatedInput);
-
-        return new ResponseEntity<>(output, HttpStatus.CREATED);
+        Either<ErrorsWrapper, AddCommentOutput> output = addComment.process(updatedInput);
+        return handleWithStatus(output, HttpStatus.CREATED);
     }
 
     @Operation(summary = "Edit own comment for a room",
@@ -67,15 +71,13 @@ public class HotelController {
             @ApiResponse(responseCode = "404", description = "Room not found")})
     @PutMapping(RestApiRoutes.EDIT_COMMENT)
     public ResponseEntity<?> editComment(@PathVariable String commentId,
-                                         @RequestBody @Valid EditCommentInput input) {
-
+                                         @RequestBody EditCommentInput input) {
         EditCommentInput updatedInput = input.toBuilder()
                 .commentId(commentId)
                 .build();
 
-        EditCommentOutput output = hotelService.editComment(updatedInput);
-
-        return new ResponseEntity<>(output, HttpStatus.OK);
+        Either<ErrorsWrapper, EditCommentOutput> output = editComment.process(updatedInput);
+        return handle(output);
     }
 
 }

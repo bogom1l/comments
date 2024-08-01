@@ -1,5 +1,6 @@
 package com.tinqinacademy.comments.api.operations.editcomment;
 
+import com.tinqinacademy.comments.api.base.OperationOutput;
 import lombok.*;
 
 import java.util.UUID;
@@ -9,6 +10,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EditCommentOutput {
+public class EditCommentOutput implements OperationOutput {
     private UUID id;
 }

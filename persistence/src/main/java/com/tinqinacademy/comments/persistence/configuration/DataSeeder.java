@@ -1,7 +1,7 @@
 package com.tinqinacademy.comments.persistence.configuration;
 
 
-import com.tinqinacademy.comments.persistence.entity.Comment;
+import com.tinqinacademy.comments.persistence.model.Comment;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
