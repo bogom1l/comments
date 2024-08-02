@@ -1,2 +1,2 @@
 # comments
- comments service
+ comments microservice
