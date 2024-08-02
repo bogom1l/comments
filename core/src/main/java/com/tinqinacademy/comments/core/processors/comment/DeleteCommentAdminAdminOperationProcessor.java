@@ -1,7 +1,7 @@
 package com.tinqinacademy.comments.core.processors.comment;
 
-import com.tinqinacademy.comments.api.errorhandler.ErrorHandler;
-import com.tinqinacademy.comments.api.errorhandler.ErrorsWrapper;
+import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
+import com.tinqinacademy.comments.api.error.ErrorsWrapper;
 import com.tinqinacademy.comments.api.exceptions.CommentException;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;

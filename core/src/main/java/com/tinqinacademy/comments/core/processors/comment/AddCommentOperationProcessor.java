@@ -1,7 +1,7 @@
 package com.tinqinacademy.comments.core.processors.comment;
 
-import com.tinqinacademy.comments.api.errorhandler.ErrorHandler;
-import com.tinqinacademy.comments.api.errorhandler.ErrorsWrapper;
+import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
+import com.tinqinacademy.comments.api.error.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOperation;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOutput;

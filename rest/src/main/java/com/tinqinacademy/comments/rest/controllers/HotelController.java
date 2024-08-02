@@ -1,21 +1,16 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
-import com.tinqinacademy.comments.api.errorhandler.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOperation;
-import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOutput;
 import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
 import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOperation;
-import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOutput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOperation;
-import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.vavr.control.Either;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,8 +39,7 @@ public class HotelController extends BaseController {
                 .roomId(roomId)
                 .build();
 
-        Either<ErrorsWrapper, GetCommentsOutput> output = getComments.process(input);
-        return handle(output);
+        return handle(getComments.process(input));
     }
 
     @Operation(summary = "Add a comment for a room",
@@ -60,8 +54,7 @@ public class HotelController extends BaseController {
                 .roomId(roomId)
                 .build();
 
-        Either<ErrorsWrapper, AddCommentOutput> output = addComment.process(updatedInput);
-        return handleWithStatus(output, HttpStatus.CREATED);
+        return handleWithStatus(addComment.process(updatedInput), HttpStatus.CREATED);
     }
 
     @Operation(summary = "Edit own comment for a room",
@@ -76,8 +69,7 @@ public class HotelController extends BaseController {
                 .commentId(commentId)
                 .build();
 
-        Either<ErrorsWrapper, EditCommentOutput> output = editComment.process(updatedInput);
-        return handle(output);
+        return handle(editComment.process(updatedInput));
     }
 
 }

@@ -34,3 +34,12 @@ Todo:
 ----------------------------------------------------------
 
 ✔️ Implement all Processors endpoints
+
+----------------------------------------------------------
+
+✔️ throw custom ValidationException instead of ConstraintViolationException
+
+----------------------------------------------------------
+
+❌ clean up processors
+

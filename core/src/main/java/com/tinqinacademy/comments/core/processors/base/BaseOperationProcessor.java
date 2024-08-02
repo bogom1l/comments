@@ -1,12 +1,15 @@
 package com.tinqinacademy.comments.core.processors.base;
 
 
-import com.tinqinacademy.comments.api.errorhandler.ErrorHandler;
+import com.tinqinacademy.comments.api.error.Error;
+import com.tinqinacademy.comments.api.exceptions.ValidationException;
+import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import jakarta.validation.ConstraintViolation;
-import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
 import org.springframework.core.convert.ConversionService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public abstract class BaseOperationProcessor<OperationInput> {
@@ -22,8 +25,22 @@ public abstract class BaseOperationProcessor<OperationInput> {
 
     protected void validateInput(OperationInput input) {
         Set<ConstraintViolation<OperationInput>> violations = validator.validate(input);
+
         if (!violations.isEmpty()) {
-            throw new ConstraintViolationException(violations);
+            List<Error> errors = buildErrors(violations);
+
+            throw new ValidationException(errors);
         }
+    }
+
+    private List<Error> buildErrors(Set<ConstraintViolation<OperationInput>> violations) {
+        List<Error> errors = new ArrayList<>();
+        for (ConstraintViolation<OperationInput> violation : violations) {
+            errors.add(Error.builder()
+                    .field(violation.getPropertyPath().toString())
+                    .message(violation.getMessage())
+                    .build());
+        }
+        return errors;
     }
 }

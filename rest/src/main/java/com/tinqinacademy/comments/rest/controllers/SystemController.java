@@ -1,18 +1,14 @@
 package com.tinqinacademy.comments.rest.controllers;
 
 
-import com.tinqinacademy.comments.api.errorhandler.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOperation;
-import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOutput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOperation;
-import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
 import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.vavr.control.Either;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +35,7 @@ public class SystemController extends BaseController {
                 .commentId(commentId)
                 .build();
 
-        Either<ErrorsWrapper, EditCommentAdminOutput> output = editCommentAdmin.process(updatedInput);
-        return handle(output);
+        return handle(editCommentAdmin.process(updatedInput));
     }
 
     @Operation(summary = "Delete any comment for a room",
@@ -55,9 +50,7 @@ public class SystemController extends BaseController {
                 .commentId(commentId)
                 .build();
 
-        Either<ErrorsWrapper, DeleteCommentAdminOutput> output = deleteCommentAdmin.process(input);
-
-        return handle(output);
+        return handle(deleteCommentAdmin.process(input));
     }
 
 }
