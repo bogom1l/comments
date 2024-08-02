@@ -5,7 +5,7 @@ import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommen
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOperation;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOperation;
-import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
+import com.tinqinacademy.comments.api.restroutes.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

@@ -7,7 +7,7 @@ import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
 import com.tinqinacademy.comments.api.operations.editcomment.EditCommentOperation;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOperation;
-import com.tinqinacademy.comments.rest.configurations.RestApiRoutes;
+import com.tinqinacademy.comments.api.restroutes.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

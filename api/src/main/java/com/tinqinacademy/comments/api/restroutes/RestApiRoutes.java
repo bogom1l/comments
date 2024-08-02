@@ -1,4 +1,4 @@
-package com.tinqinacademy.comments.rest.configurations;
+package com.tinqinacademy.comments.api.restroutes;
 
 public class RestApiRoutes {
     public static final String API = "/api/v1";
