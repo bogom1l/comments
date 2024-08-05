@@ -38,8 +38,9 @@ Todo:
 ----------------------------------------------------------
 
 ✔️ throw custom ValidationException instead of ConstraintViolationException
+❓ Refactor some of the processors' logic
 
 ----------------------------------------------------------
 
-❌ clean up processors
+
 
