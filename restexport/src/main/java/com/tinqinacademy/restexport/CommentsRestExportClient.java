@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Headers("Content-Type: application/json")
 public interface CommentsRestExportClient {
 
+    //todo - change the return type to the correct output model
     @GetMapping(RestApiRoutes.GET_ALL_COMMENTS)
     ResponseEntity<?> getAllComments(@PathVariable String roomId);
 

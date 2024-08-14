@@ -43,4 +43,4 @@ Todo:
 
 ----------------------------------------------------------
 
-
+CommentsRestExportClient: //todo - change the return type to the correct output model
