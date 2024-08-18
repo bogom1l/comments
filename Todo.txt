@@ -44,8 +44,3 @@ Todo:
 ----------------------------------------------------------
 
 ❌ CommentsRestExportClient: //todo - change the return type to the correct output model
-
-- BFF to Comments endpoints:
-❌ endpoint1
-❌ endpoint2
-❌ ...
