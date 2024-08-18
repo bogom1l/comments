@@ -1,11 +1,11 @@
 package com.tinqinacademy.comments.core.processors.comment;
 
-import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import com.tinqinacademy.comments.api.error.ErrorsWrapper;
 import com.tinqinacademy.comments.api.exceptions.CommentException;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOperation;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminOutput;
+import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import com.tinqinacademy.comments.core.processors.base.BaseOperationProcessor;
 import com.tinqinacademy.comments.persistence.model.Comment;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
@@ -22,7 +22,6 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class EditCommentAdminOperationProcessor extends BaseOperationProcessor<EditCommentAdminInput> implements EditCommentAdminOperation {
-
     private final CommentRepository commentRepository;
 
     protected EditCommentAdminOperationProcessor(ConversionService conversionService, ErrorHandler errorHandler, Validator validator, CommentRepository commentRepository) {
@@ -39,6 +38,7 @@ public class EditCommentAdminOperationProcessor extends BaseOperationProcessor<E
 
     private EditCommentAdminOutput editCommentAdmin(EditCommentAdminInput input) {
         log.info("Started editCommentAdmin with input: {}", input);
+        validateInput(input);
 
         Comment comment = commentRepository.findById(UUID.fromString(input.getCommentId()))
                 .orElseThrow(() -> new CommentException("Comment not found"));

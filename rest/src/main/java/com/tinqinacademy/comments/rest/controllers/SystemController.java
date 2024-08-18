@@ -1,6 +1,5 @@
 package com.tinqinacademy.comments.rest.controllers;
 
-
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminInput;
 import com.tinqinacademy.comments.api.operations.deletecommentadmin.DeleteCommentAdminOperation;
 import com.tinqinacademy.comments.api.operations.editcommentadmin.EditCommentAdminInput;
@@ -9,19 +8,15 @@ import com.tinqinacademy.comments.api.restroutes.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class SystemController extends BaseController {
-
     private final DeleteCommentAdminOperation deleteCommentAdmin;
     private final EditCommentAdminOperation editCommentAdmin;
-
-    public SystemController(DeleteCommentAdminOperation deleteCommentAdmin, EditCommentAdminOperation editCommentAdmin) {
-        this.deleteCommentAdmin = deleteCommentAdmin;
-        this.editCommentAdmin = editCommentAdmin;
-    }
 
     @Operation(summary = "Edit any comment for a room",
             description = "Edit any comment for a room")

@@ -10,6 +10,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class EditCommentOutput implements OperationOutput {
     private UUID id;
 }

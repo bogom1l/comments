@@ -1,6 +1,5 @@
 package com.tinqinacademy.comments.rest.configurations;
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -9,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ApplicationBeanConfiguration {
+public class ObjectMapperConfig {
 
     @Bean
     public ObjectMapper objectMapper() {

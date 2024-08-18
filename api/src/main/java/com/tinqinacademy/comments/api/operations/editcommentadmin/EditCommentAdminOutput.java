@@ -11,6 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class EditCommentAdminOutput implements OperationOutput {
     private UUID id;
 }

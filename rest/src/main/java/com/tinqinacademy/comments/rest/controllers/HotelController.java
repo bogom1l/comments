@@ -1,6 +1,5 @@
 package com.tinqinacademy.comments.rest.controllers;
 
-
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOperation;
 import com.tinqinacademy.comments.api.operations.editcomment.EditCommentInput;
@@ -11,22 +10,17 @@ import com.tinqinacademy.comments.api.restroutes.RestApiRoutes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class HotelController extends BaseController {
-
     private final GetCommentsOperation getComments;
     private final AddCommentOperation addComment;
     private final EditCommentOperation editComment;
-
-    public HotelController(GetCommentsOperation getComments, AddCommentOperation addComment, EditCommentOperation editComment) {
-        this.getComments = getComments;
-        this.addComment = addComment;
-        this.editComment = editComment;
-    }
 
     @Operation(summary = "Get all comments for a room",
             description = "Get all comments for a room")

@@ -1,10 +1,9 @@
 package com.tinqinacademy.comments.persistence.configuration;
 
-
 import com.tinqinacademy.comments.persistence.model.Comment;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -13,17 +12,12 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.List;
 
-@Slf4j
 @Component
 @Order(1)
+@RequiredArgsConstructor
+@Slf4j
 public class DataSeeder implements ApplicationRunner {
-
     private final CommentRepository commentRepository;
-
-    @Autowired
-    public DataSeeder(CommentRepository commentRepository) {
-        this.commentRepository = commentRepository;
-    }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {

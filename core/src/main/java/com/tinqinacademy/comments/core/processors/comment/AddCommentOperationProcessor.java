@@ -1,10 +1,10 @@
 package com.tinqinacademy.comments.core.processors.comment;
 
-import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import com.tinqinacademy.comments.api.error.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentInput;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOperation;
 import com.tinqinacademy.comments.api.operations.addcomment.AddCommentOutput;
+import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import com.tinqinacademy.comments.core.processors.base.BaseOperationProcessor;
 import com.tinqinacademy.comments.persistence.model.Comment;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class AddCommentOperationProcessor extends BaseOperationProcessor<AddCommentInput> implements AddCommentOperation {
-
     private final CommentRepository commentRepository;
 
     protected AddCommentOperationProcessor(ConversionService conversionService, ErrorHandler errorHandler, Validator validator, CommentRepository commentRepository) {
@@ -35,7 +34,6 @@ public class AddCommentOperationProcessor extends BaseOperationProcessor<AddComm
 
     private AddCommentOutput addComment(AddCommentInput input) {
         log.info("Started addComment with input: {}", input);
-
         validateInput(input);
 
         Comment comment = conversionService.convert(input, Comment.class);
@@ -47,5 +45,4 @@ public class AddCommentOperationProcessor extends BaseOperationProcessor<AddComm
         log.info("Ended addComment with output: {}", output);
         return output;
     }
-
 }

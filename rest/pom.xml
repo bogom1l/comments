@@ -13,6 +13,7 @@
     <version>${revision}</version>
 
     <dependencies>
+
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>core</artifactId>
@@ -24,7 +25,6 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>${swagger.version}</version>
         </dependency>
-
 
     </dependencies>
 

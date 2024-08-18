@@ -1,6 +1,5 @@
 package com.tinqinacademy.comments.rest.controllers;
 
-
 import com.tinqinacademy.comments.api.base.OperationOutput;
 import com.tinqinacademy.comments.api.error.ErrorsWrapper;
 import io.vavr.control.Either;

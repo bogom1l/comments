@@ -10,6 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
+@ToString
 public class EditCommentInput implements OperationInput {
     @JsonIgnore
     private String commentId;

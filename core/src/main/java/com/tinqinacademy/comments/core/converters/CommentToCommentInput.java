@@ -15,7 +15,7 @@ public class CommentToCommentInput implements Converter<Comment, CommentInput> {
 
         //todo; refactor; this will become CommentToCommentInputBuilder, because user is another table;
 
-        CommentInput commentInput = CommentInput.builder()
+        CommentInput target = CommentInput.builder()
                 .id(String.valueOf(source.getId()))
                 .content(source.getContent())
                 .fistName(source.getFirstName())
@@ -26,6 +26,6 @@ public class CommentToCommentInput implements Converter<Comment, CommentInput> {
                 .build();
 
         log.info("Ended Converter - Comment to CommentInput");
-        return commentInput;
+        return target;
     }
 }

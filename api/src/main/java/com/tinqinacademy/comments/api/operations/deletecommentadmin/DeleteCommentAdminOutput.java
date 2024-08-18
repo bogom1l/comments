@@ -7,5 +7,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @Builder
+@ToString
 public class DeleteCommentAdminOutput implements OperationOutput {
 }

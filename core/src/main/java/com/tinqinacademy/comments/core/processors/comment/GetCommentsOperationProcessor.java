@@ -1,11 +1,11 @@
 package com.tinqinacademy.comments.core.processors.comment;
 
-import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import com.tinqinacademy.comments.api.error.ErrorsWrapper;
 import com.tinqinacademy.comments.api.operations.getcomments.CommentInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOperation;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
+import com.tinqinacademy.comments.core.errorhandler.ErrorHandler;
 import com.tinqinacademy.comments.core.processors.base.BaseOperationProcessor;
 import com.tinqinacademy.comments.persistence.model.Comment;
 import com.tinqinacademy.comments.persistence.repository.CommentRepository;
@@ -21,7 +21,6 @@ import java.util.List;
 @Service
 @Slf4j
 public class GetCommentsOperationProcessor extends BaseOperationProcessor<GetCommentsInput> implements GetCommentsOperation {
-
     private final CommentRepository commentRepository;
 
     protected GetCommentsOperationProcessor(ConversionService conversionService, ErrorHandler errorHandler, Validator validator, CommentRepository commentRepository) {
@@ -38,6 +37,7 @@ public class GetCommentsOperationProcessor extends BaseOperationProcessor<GetCom
 
     private GetCommentsOutput getComments(GetCommentsInput input) {
         log.info("Started getComments with input: {}", input);
+        validateInput(input);
 
         // search room by roomId
         // get all comments for that room

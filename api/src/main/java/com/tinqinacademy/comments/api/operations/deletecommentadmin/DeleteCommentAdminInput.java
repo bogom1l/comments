@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class DeleteCommentAdminInput implements OperationInput {
     @JsonIgnore
     private String commentId;

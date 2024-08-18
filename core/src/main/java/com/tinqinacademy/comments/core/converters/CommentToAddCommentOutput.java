@@ -13,11 +13,11 @@ public class CommentToAddCommentOutput implements Converter<Comment, AddCommentO
     public AddCommentOutput convert(Comment source) {
         log.info("Started Converter - Comment to AddCommentOutput");
 
-        AddCommentOutput addCommentOutput = AddCommentOutput.builder()
+        AddCommentOutput target = AddCommentOutput.builder()
                 .id(source.getId())
                 .build();
 
         log.info("Ended Converter - Comment to AddCommentOutput");
-        return addCommentOutput;
+        return target;
     }
 }
