@@ -26,7 +26,7 @@ public class DataSeeder implements ApplicationRunner {
 
     private void seedComments() {
         if (commentRepository.count() != 0) {
-            log.info("DataSeeder - didn't seed any comments");
+            log.info("DataSeeder - Comments were not seeded because they already exist.");
             return;
         }
 
@@ -84,8 +84,7 @@ public class DataSeeder implements ApplicationRunner {
                 .lastEditedBy("Admin")
                 .build();
 
-        commentRepository.saveAll(List.of(comment1, comment2, comment3,
-                comment4, comment5, comment6));
-        log.info("DataSeeder - Seeded comments");
+        commentRepository.saveAll(List.of(comment1, comment2, comment3, comment4, comment5, comment6));
+        log.info("DataSeeder - Sample comments seeded successfully.");
     }
 }
