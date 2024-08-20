@@ -19,13 +19,14 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class HotelController extends BaseController {
     private final GetCommentsOperation getComments;
-//    private final AddCommentOperation addComment;
+    private final AddCommentOperation addComment;
 //    private final EditCommentOperation editComment;
 
     @Operation(summary = "Get all comments for a room",
             description = "Get all comments for a room")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved comments"),
+            @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Room not found")})
     @GetMapping(RestApiRoutes.GET_ALL_COMMENTS)
     public ResponseEntity<?> getAllComments(@PathVariable String roomId) {
@@ -36,20 +37,21 @@ public class HotelController extends BaseController {
         return handle(getComments.process(input));
     }
 
-//    @Operation(summary = "Add a comment for a room",
-//            description = "Add a comment for a room")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "201", description = "Successfully added comment"),
-//            @ApiResponse(responseCode = "404", description = "Room not found")})
-//    @PostMapping(RestApiRoutes.ADD_COMMENT)
-//    public ResponseEntity<?> addComment(@PathVariable String roomId,
-//                                        @RequestBody AddCommentInput input) {
-//        AddCommentInput updatedInput = input.toBuilder()
-//                .roomId(roomId)
-//                .build();
-//
-//        return handleWithStatus(addComment.process(updatedInput), HttpStatus.CREATED);
-//    }
+    @Operation(summary = "Add a comment for a room",
+            description = "Add a comment for a room")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Successfully added comment"),
+            @ApiResponse(responseCode = "400", description = "Bad request"),
+            @ApiResponse(responseCode = "404", description = "Room not found")})
+    @PostMapping(RestApiRoutes.ADD_COMMENT)
+    public ResponseEntity<?> addComment(@PathVariable String roomId,
+                                        @RequestBody AddCommentInput input) {
+        AddCommentInput updatedInput = input.toBuilder()
+                .roomId(roomId)
+                .build();
+
+        return handleWithStatus(addComment.process(updatedInput), HttpStatus.CREATED);
+    }
 //
 //    @Operation(summary = "Edit own comment for a room",
 //            description = "Edit own comment for a room")
