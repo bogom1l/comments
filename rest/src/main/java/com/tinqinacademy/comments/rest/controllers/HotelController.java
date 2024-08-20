@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class HotelController extends BaseController {
     private final GetCommentsOperation getComments;
     private final AddCommentOperation addComment;
-//    private final EditCommentOperation editComment;
+    private final EditCommentOperation editComment;
 
     @Operation(summary = "Get all comments for a room",
             description = "Get all comments for a room")
@@ -52,20 +52,21 @@ public class HotelController extends BaseController {
 
         return handleWithStatus(addComment.process(updatedInput), HttpStatus.CREATED);
     }
-//
-//    @Operation(summary = "Edit own comment for a room",
-//            description = "Edit own comment for a room")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "Successfully edited comment"),
-//            @ApiResponse(responseCode = "404", description = "Room not found")})
-//    @PutMapping(RestApiRoutes.EDIT_COMMENT)
-//    public ResponseEntity<?> editComment(@PathVariable String commentId,
-//                                         @RequestBody EditCommentInput input) {
-//        EditCommentInput updatedInput = input.toBuilder()
-//                .commentId(commentId)
-//                .build();
-//
-//        return handle(editComment.process(updatedInput));
-//    }
+
+    @Operation(summary = "Edit own comment for a room",
+            description = "Edit own comment for a room")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successfully edited comment"),
+            @ApiResponse(responseCode = "400", description = "Bad request"),
+            @ApiResponse(responseCode = "404", description = "Room not found")})
+    @PutMapping(RestApiRoutes.EDIT_COMMENT)
+    public ResponseEntity<?> editComment(@PathVariable String commentId,
+                                         @RequestBody EditCommentInput input) {
+        EditCommentInput updatedInput = input.toBuilder()
+                .commentId(commentId)
+                .build();
+
+        return handle(editComment.process(updatedInput));
+    }
 
 }

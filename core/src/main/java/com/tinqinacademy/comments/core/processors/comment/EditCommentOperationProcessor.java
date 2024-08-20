@@ -16,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Service
@@ -41,7 +40,11 @@ public class EditCommentOperationProcessor extends BaseOperationProcessor<EditCo
         validateInput(input);
 
         Comment comment = commentRepository.findById(UUID.fromString(input.getCommentId()))
-                .orElseThrow(() -> new CommentException("Comment not found"));
+                .orElseThrow(() -> new CommentException("Comment not found."));
+
+        if (!comment.getUserId().equals(UUID.fromString(input.getUserId()))) {
+            throw new CommentException("User is not allowed to edit this comment because it is not their own comment.");
+        }
 
         comment.setContent(input.getContent());
         comment.setLastEditedBy(UUID.fromString(input.getUserId()));
@@ -49,7 +52,7 @@ public class EditCommentOperationProcessor extends BaseOperationProcessor<EditCo
         commentRepository.save(comment);
 
         EditCommentOutput output = EditCommentOutput.builder()
-                .id(comment.getId())
+                .commentId(comment.getId())
                 .build();
 
         log.info("Ended editComment with output: {}", output);
