@@ -43,5 +43,6 @@ Todo:
 
 ----------------------------------------------------------
 
-❌ All endpoints from BFF
-   ❌ CommentsRestExportClient: //todo - change the return type to the correct output model
+❌ All endpoints to BFF
+
+clean up whole project.

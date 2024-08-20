@@ -1,7 +1,7 @@
 package com.tinqinacademy.comments.core.processors.comment;
 
 import com.tinqinacademy.comments.api.error.ErrorsWrapper;
-import com.tinqinacademy.comments.api.operations.getcomments.CommentInput;
+import com.tinqinacademy.comments.api.operations.getcomments.CommentOutput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsInput;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOperation;
 import com.tinqinacademy.comments.api.operations.getcomments.GetCommentsOutput;
@@ -17,6 +17,7 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -39,18 +40,14 @@ public class GetCommentsOperationProcessor extends BaseOperationProcessor<GetCom
         log.info("Started getComments with input: {}", input);
         validateInput(input);
 
-        // search room by roomId
-        // get all comments for that room
-        // convert comments to CommentInput
+        List<Comment> comments = commentRepository.findAllByRoomId(UUID.fromString(input.getRoomId()));
 
-        List<Comment> comments = commentRepository.findAll();
-
-        List<CommentInput> commentInputs = comments.stream()
-                .map(comment -> conversionService.convert(comment, CommentInput.class))
+        List<CommentOutput> commentOutputs = comments.stream()
+                .map(comment -> conversionService.convert(comment, CommentOutput.class))
                 .toList();
 
         GetCommentsOutput output = GetCommentsOutput.builder()
-                .comments(commentInputs)
+                .comments(commentOutputs)
                 .build();
 
         log.info("Ended getComments with output: {}", output);

@@ -12,5 +12,5 @@ import java.util.List;
 @Builder
 @ToString
 public class GetCommentsOutput implements OperationOutput {
-    List<CommentInput> comments;
+    List<CommentOutput> comments;
 }

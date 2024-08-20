@@ -23,31 +23,26 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    //todo later change first_name and last_name to User entity relation
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "content")
+    @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "publish_date")
+    @Column(name = "user_id", nullable = false)
+    private UUID userId;
+
+    @Column(name = "last_edited_by_id")
+    private UUID lastEditedBy;
+
+    @Column(name = "room_id", nullable = false)
+    private UUID roomId;
+
+    @Column(name = "publish_date", nullable = false)
     private LocalDate publishDate;
 
-    @Column(name = "last_edited_date")
-    private LocalDate lastEditedDate;
-
-    //todo ? later change last_edited_by to User entity relation
-    @Column(name = "last_edited_by")
-    private String lastEditedBy;
-
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    @Column(name = "last_edited_date")
+    private LocalDate lastEditedDate;
 }
