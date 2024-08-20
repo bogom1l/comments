@@ -12,5 +12,5 @@ import java.util.UUID;
 @Builder
 @ToString
 public class EditCommentOutput implements OperationOutput {
-    private UUID id;
+    private UUID commentId;
 }
