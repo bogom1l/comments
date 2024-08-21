@@ -15,12 +15,10 @@ public class EditCommentAdminInput implements OperationInput {
     @JsonIgnore
     private String commentId;
 
+    private String userId;
+
     @NotBlank
     private String content;
 
-    private String roomNumber;
-
-    private String firstName; //
-
-    private String lastName; //
+    //private String roomId;
 }
