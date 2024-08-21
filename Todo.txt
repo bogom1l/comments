@@ -43,7 +43,6 @@ Todo:
 
 ----------------------------------------------------------
 
-❌ All endpoints to BFF
-AddCommentInput ne poluchavashe pravilno userId, zashtoto AddCommentInput imashe @JsonIgnore na userId
+✔️ All endpoints to BFF
 
-clean up whole project.
+❌ clean up whole project. (and comments part in the bff)
