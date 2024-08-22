@@ -45,4 +45,4 @@ Todo:
 
 ✔️ All endpoints to BFF
 
-❌ clean up whole project. (and comments part in the bff)
+----------------------------------------------------------
