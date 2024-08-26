@@ -115,4 +115,39 @@ public class SystemControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    void deleteCommentAdminReturnsNotFound() throws Exception {
+        UUID commentId = UUID.randomUUID();
+
+        DeleteCommentAdminInput input = DeleteCommentAdminInput.builder()
+                .commentId(String.valueOf(commentId))
+                .build();
+
+        String serializedInput = mapper.writeValueAsString(input);
+
+        mvc.perform(delete(RestApiRoutes.DELETE_COMMENT_ADMIN, commentId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(serializedInput)
+                        .characterEncoding("UTF-8"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void deleteCommentAdminReturnsBadRequest() throws Exception {
+        String commentId = "asd"; // invalid uuid format
+
+        DeleteCommentAdminInput input = DeleteCommentAdminInput.builder()
+                .commentId(commentId)
+                .build();
+
+        String serializedInput = mapper.writeValueAsString(input);
+
+        mvc.perform(delete(RestApiRoutes.DELETE_COMMENT_ADMIN, commentId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(serializedInput)
+                        .characterEncoding("UTF-8"))
+                .andExpect(status().isInternalServerError());
+    }
+
+
 }
